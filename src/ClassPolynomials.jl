@@ -29,7 +29,7 @@ end
 
 function EtaModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolEta", "$ell.pol.gz")) do deg1, deg2, c
-        parse(BigInt, c) * X^parse(deg1) * X^parse(deg2)
+        parse(BigInt, c) * X^parse(deg1) * Y^parse(deg2)
     end
 end
 
@@ -40,7 +40,7 @@ end
 
 function AtkinModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolAtk", "$ell.pol.gz")) do deg1, deg2, c
-        parse(BigInt, c) * X^parse(deg1) * X^parse(deg2)
+        parse(BigInt, c) * X^parse(deg1) * Y^parse(deg2)
     end
 end
 
