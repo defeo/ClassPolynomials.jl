@@ -4,7 +4,7 @@ import Nemo, GZip
 
 DIR = Pkg.dir("ClassPolynomials", "deps")
 
-export ClassicalModularPolynomial, AtkinModularPolynomial, EtaModularPolynomial
+export ClassicalModularPolynomial, AtkinModularPolynomial, EtaModularPolynomial, WeberModularPolynomial
 
 function ClassicalModularPolynomial(ell)
     parent, (X, Y) = Nemo.PolynomialRing(Nemo.ZZ, ["X", "Y"])
@@ -41,6 +41,22 @@ end
 function AtkinModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolAtk", "$ell.pol.gz")) do deg1, deg2, c
         parse(BigInt, c) * X^parse(deg1) * Y^parse(deg2)
+    end
+end
+
+function WeberModularPolynomial(ell)
+    parent, (X, Y) = Nemo.PolynomialRing(Nemo.ZZ, ["X", "Y"])
+    WeberModularPolynomial(ell, X, Y)
+end
+
+function WeberModularPolynomial(ell, X, Y)
+    _parse(joinpath("ModPolWeb", "$ell.pol.gz")) do deg1, deg2, c
+        d1, d2 = parse(deg1), parse(deg2)
+        mon = X^d1 * Y^d2
+        if d1 != d2
+            mon += X^d2 * Y^d1
+        end
+        parse(BigInt, c) * mon
     end
 end
 

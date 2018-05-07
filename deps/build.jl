@@ -1,5 +1,5 @@
 MIRROR = "http://crypto.prism.uvsq.fr/echidna"
-TARFILES = ["ModPolCls.tar", "ModPolEta.tar", "ModPolAtk.tar"]
+TARFILES = ["ModPolCls.tar", "ModPolEta.tar", "ModPolAtk.tar", "ModPolWeb.tar"]
 
 cd(Pkg.dir("ClassPolynomials", "deps"))
 
