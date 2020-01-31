@@ -1,4 +1,4 @@
-MIRROR = "http://crypto.prism.uvsq.fr/echidna"
+MIRROR = "https://zenodo.org/record/3633228/files/"
 TARFILES = ["ModPolCls.tar", "ModPolEta.tar", "ModPolAtk.tar", "ModPolWeb.tar"]
 
 cd(Pkg.dir("ClassPolynomials", "deps"))

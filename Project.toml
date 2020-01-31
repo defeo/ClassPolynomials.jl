@@ -1,5 +1,6 @@
 name = "ClassPolynomials"
 uuid = "b32a9e82-a894-5370-a7cd-81481c2f7fd8"
+version = "1.0"
 
 [deps]
 GZip = "92fee26a-97fe-5a0c-ad85-20a5f3185b63"
