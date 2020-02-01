@@ -1,11 +1,12 @@
 name = "ClassPolynomials"
 uuid = "b32a9e82-a894-5370-a7cd-81481c2f7fd8"
-version = "1.0"
+version = "1.0.0"
 
 [deps]
 GZip = "92fee26a-97fe-5a0c-ad85-20a5f3185b63"
 Nemo = "2edaba10-b0f1-5616-af89-8c11ac63239a"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 
 [compat]
 Nemo = "≥ 0.6.0"
-julia = "≥ 0.5.0"
+julia = "≥ 1.0.0"

@@ -2,7 +2,7 @@ module ClassPolynomials
 
 import Nemo, GZip
 
-DIR = Pkg.dir("ClassPolynomials", "deps")
+DIR = joinpath(dirname(pathof(ClassPolynomials)), "..", "deps")
 
 export ClassicalModularPolynomial, AtkinModularPolynomial, EtaModularPolynomial, WeberModularPolynomial
 
@@ -13,7 +13,7 @@ end
 
 function ClassicalModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolCls", "$ell.pol.gz")) do deg1, deg2, c
-        d1, d2 = parse(deg1), parse(deg2)
+        d1, d2 = parse(Int, deg1), parse(Int, deg2)
         mon = X^d1 * Y^d2
         if d1 != d2
             mon += X^d2 * Y^d1
@@ -29,7 +29,7 @@ end
 
 function EtaModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolEta", "$ell.pol.gz")) do deg1, deg2, c
-        parse(BigInt, c) * X^parse(deg1) * Y^parse(deg2)
+        parse(BigInt, c) * X^parse(Int, deg1) * Y^parse(Int, deg2)
     end
 end
 
@@ -40,7 +40,7 @@ end
 
 function AtkinModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolAtk", "$ell.pol.gz")) do deg1, deg2, c
-        parse(BigInt, c) * X^parse(deg1) * Y^parse(deg2)
+        parse(BigInt, c) * X^parse(Int, deg1) * Y^parse(Int, deg2)
     end
 end
 
@@ -51,7 +51,7 @@ end
 
 function WeberModularPolynomial(ell, X, Y)
     _parse(joinpath("ModPolWeb", "$ell.pol.gz")) do deg1, deg2, c
-        d1, d2 = parse(deg1), parse(deg2)
+        d1, d2 = parse(Int, deg1), parse(Int, deg2)
         mon = X^d1 * Y^d2
         if d1 != d2
             mon += X^d2 * Y^d1
